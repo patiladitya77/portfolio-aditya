@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function HeroSection() {
+const HeroSection = () => {
   return (
     <section
       id="hero"
@@ -79,9 +79,14 @@ export default function HeroSection() {
             <button className="px-8 py-3 border-2 border-white rounded-full hover:bg-white hover:text-black transition text-lg font-medium">
               Contact Me
             </button>
-            <button className="px-8 py-3 bg-linear-to-r from-green-400 to-purple-500 rounded-full hover:scale-105 transition text-lg font-medium">
+            <a
+              href="https://drive.google.com/file/d/1OI0qyGa0qn9PcLhQATGj7snBsIW2Z6BY/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-gradient-to-r from-green-400 to-purple-500 rounded-full hover:scale-105 transition text-lg font-medium inline-block"
+            >
               Get Resume
-            </button>
+            </a>
           </div>
         </motion.div>
 
@@ -120,4 +125,5 @@ export default function HeroSection() {
       </div>
     </section>
   );
-}
+};
+export default HeroSection;
