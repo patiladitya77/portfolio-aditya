@@ -25,7 +25,7 @@ const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen flex flex-col justify-center bg-neutral-950 px-8 py-20 overflow-hidden"
+      className="min-h-screen flex flex-col justify-center bg-neutral-800 px-8 py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-5xl md:text-6xl font-bold text-white mb-4 text-center">
@@ -38,8 +38,8 @@ const SkillsSection = () => {
         {/* Marquee */}
         <div className="relative">
           {/* Gradient edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-neutral-950 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-neutral-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-neutral-800 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-neutral-800 to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
             <motion.div
@@ -55,7 +55,7 @@ const SkillsSection = () => {
             >
               {[...skills, ...skills, ...skills].map((skill, index) => (
                 <div key={index} className="flex-shrink-0 group">
-                  <div className="relative flex flex-col items-center justify-center w-40 h-40 bg-neutral-900/50 backdrop-blur-sm rounded-2xl border border-neutral-800 hover:border-neutral-700 transition-all duration-300 hover:scale-110 hover:bg-neutral-900">
+                  <div className="relative flex flex-col items-center justify-center w-40 h-40 bg-neutral-700/50 backdrop-blur-sm rounded-2xl border border-neutral-600 hover:border-neutral-500 transition-all duration-300 hover:scale-110 hover:bg-neutral-700">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <img
                       src={skill.src}

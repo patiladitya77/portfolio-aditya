@@ -1,58 +1,58 @@
 "use client";
 
-import { Mail, Phone, MapPin, Github, Linkedin, X } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
 
 const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen bg-black px-6 py-24 flex items-center relative"
+      className="bg-neutral-900 px-6 py-24 border-t border-neutral-800"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* Section title */}
-        <h2 className="text-teal-400 text-sm tracking-widest mb-8">
-          CONTACT WITH ME
-        </h2>
+        <p className="text-teal-400 text-sm tracking-widest mb-4">
+          GET IN TOUCH
+        </p>
+        <h2 className="text-4xl font-bold text-white mb-12">Contact Me</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* LEFT - Contact Form */}
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-10">
+          <div className="bg-neutral-800 border border-neutral-700 rounded-2xl p-10">
             <h3 className="text-xl font-semibold text-white mb-2">
               Got a question or{" "}
               <span className="text-teal-400">want to work together?</span>
             </h3>
             <p className="text-neutral-400 mb-8">
-              Feel free to reach out – I’m just one message away!
+              Feel free to reach out – I'm just one message away!
             </p>
 
-            <form className="space-y-6">
+            <div className="space-y-6">
               <div>
-                <label className="text-white text-sm mb-2 block">
-                  Your Name:
+                <label className="text-neutral-300 text-sm mb-2 block">
+                  Your Name
                 </label>
                 <input
                   type="text"
-                  className="w-full rounded-lg bg-transparent border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-teal-400"
+                  className="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-3 text-white focus:outline-none focus:border-teal-400 transition-colors"
                 />
               </div>
 
               <div>
-                <label className="text-white text-sm mb-2 block">
-                  Your Email:
+                <label className="text-neutral-300 text-sm mb-2 block">
+                  Your Email
                 </label>
                 <input
                   type="email"
-                  className="w-full rounded-lg bg-transparent border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-teal-400"
+                  className="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-3 text-white focus:outline-none focus:border-teal-400 transition-colors"
                 />
               </div>
 
               <div>
-                <label className="text-white text-sm mb-2 block">
-                  Your Message:
+                <label className="text-neutral-300 text-sm mb-2 block">
+                  Your Message
                 </label>
                 <textarea
                   rows={5}
-                  className="w-full rounded-lg bg-transparent border border-white/10 px-4 py-3 text-white resize-none focus:outline-none focus:border-teal-400"
+                  className="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-3 text-white resize-none focus:outline-none focus:border-teal-400 transition-colors"
                 />
               </div>
 
@@ -62,57 +62,52 @@ const ContactSection = () => {
               >
                 SEND MESSAGE <Mail size={18} />
               </button>
-            </form>
+            </div>
           </div>
 
           {/* RIGHT - Contact Info */}
           <div className="flex flex-col justify-center gap-8 text-white">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10">
-                <Mail />
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-neutral-800 border border-neutral-700 text-teal-400">
+                <Mail size={20} />
               </div>
-              <span className="text-lg">adpatil587@gmail.com</span>
+              <span className="text-neutral-300">adpatil587@gmail.com</span>
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10">
-                <Phone />
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-neutral-800 border border-neutral-700 text-teal-400">
+                <Phone size={20} />
               </div>
-              <span className="text-lg">+91 9321760793</span>
+              <span className="text-neutral-300">+91 9321760793</span>
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10">
-                <MapPin />
+              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-neutral-800 border border-neutral-700 text-teal-400">
+                <MapPin size={20} />
               </div>
-              <span className="text-lg">Mumbai, Maharashtra, India</span>
+              <span className="text-neutral-300">
+                Mumbai, Maharashtra, India
+              </span>
             </div>
 
             {/* Social Icons */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-4 mt-4">
               <a
                 href="https://github.com/patiladitya77"
                 target="_blank"
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+                className="w-12 h-12 flex items-center justify-center rounded-xl bg-neutral-800 border border-neutral-700 hover:border-teal-400 hover:text-teal-400 transition-all duration-200"
               >
-                <Github />
+                <Github size={20} />
               </a>
               <a
                 href="https://www.linkedin.com/in/devwithaditya/"
                 target="_blank"
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition"
+                className="w-12 h-12 flex items-center justify-center rounded-xl bg-neutral-800 border border-neutral-700 hover:border-teal-400 hover:text-teal-400 transition-all duration-200"
               >
-                <Linkedin />
+                <Linkedin size={20} />
               </a>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Vertical CONTACT label */}
-      <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2">
-        <div className="bg-purple-600 text-white px-4 py-12 rounded-lg rotate-180 writing-mode-vertical">
-          CONTACT
         </div>
       </div>
     </section>
