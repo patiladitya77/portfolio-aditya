@@ -27,7 +27,11 @@ const experiences = [
     company: "Zenlynx Technologies",
     location: "Remote",
     start: "2025-12",
-    description: "Working on full-stack systems",
+    description: [
+      "Built a multi-tenant Learning Management System using React, Express.js, and PostgreSQL.",
+      "Implemented authentication, RBAC, and optimized REST APIs.",
+      "Reduced API response times to under 200ms through backend optimization.",
+    ],
     end: "2026-04",
   },
 ];

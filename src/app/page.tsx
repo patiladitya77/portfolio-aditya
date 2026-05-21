@@ -26,10 +26,12 @@ export default function Home() {
             </p>
             <h2 className="text-4xl font-bold mb-6 text-white">About Me</h2>
             <p className="text-neutral-400 max-w-2xl text-lg leading-relaxed">
-              I'm a passionate developer who loves building creative full-stack
-              apps and learning new technologies. I thrive on solving complex
-              problems and turning ideas into polished, production-ready
-              products.
+              Software Engineer passionate about building scalable systems and
+              solving complex problems at scale. Ex perienced in full-stack
+              development with strong foundations in Data Structures,
+              Algorithms, and Object Oriented Design. Proven ability to
+              demonstrate ownership, curiosity, and collaborative mindset while
+              de livering production-ready solutions in fast-paced environments.
             </p>
           </div>
         </section>
@@ -57,10 +59,10 @@ export default function Home() {
               <ProjectCard
                 title="Synk"
                 description="Synk is a web based collaborative drawing tool"
-                tech={["ExpressJs", "Docker", "Socket.io", "PostgreSQL", "GCP"]}
+                tech={["ExpressJs", "Docker", "Socket.io", "PostgreSQL"]}
                 github="https://github.com/patiladitya77/synk"
-                live="https://dev-tinder-fe.onrender.com/"
-                thumbnail="/projects/devtinder.png"
+                // live="https://dev-tinder-fe.onrender.com/"
+                thumbnail="/synk.png"
               />
               <ProjectCard
                 title="Prep-AI"
@@ -68,15 +70,15 @@ export default function Home() {
                 tech={["Next.js", "Node.js", "PostgreSQL", "Gemini", "BullMq"]}
                 live="https://prep-ai-seven-rho.vercel.app/"
                 github="https://github.com/patiladitya77/Prep-AI"
-                thumbnail="/projects/prep-ai.png"
+                thumbnail="/prep-ai.png"
               />
-              <ProjectCard
+              {/* <ProjectCard
                 title="LoveWall"
                 description="LoveWall is a testimonial collection platform where workspace owners can gather video/text testimonials and embed them into their websites with auto-generated code."
                 tech={["Next.js", "Redux", "Clerk", "Imagekit"]}
                 github="https://github.com/patiladitya77/lovewall-web"
                 thumbnail="/projects/lovewall.png"
-              />
+              /> */}
             </div>
           </div>
         </section>
