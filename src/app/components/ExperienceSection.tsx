@@ -8,7 +8,7 @@ const formatDate = (date: string) =>
     year: "numeric",
   });
 
-const getDuration = (start: string, end?: string) => {
+const getDuration = (start: string, end?: string | null) => {
   const startDate = new Date(start + "-01");
   const endDate = end ? new Date(end + "-01") : new Date();
   let months =
@@ -21,22 +21,23 @@ const getDuration = (start: string, end?: string) => {
   return `${months} mo`;
 };
 
-const experiences = [
-  {
-    role: "SDE Intern",
-    company: "Zenlynx Technologies",
-    location: "Remote",
-    start: "2025-12",
-    description: [
-      "Built a multi-tenant Learning Management System using React, Express.js, and PostgreSQL.",
-      "Implemented authentication, RBAC, and optimized REST APIs.",
-      "Reduced API response times to under 200ms through backend optimization.",
-    ],
-    end: "2026-04",
-  },
-];
+export interface Experience {
+  _id: string;
+  role: string;
+  company: string;
+  workLocation: string;
+  startDate: string;
+  endDate: string | null;
+  description: string[];
+  isCurrent: boolean;
+  skills: string[];
+}
 
-const ExperienceSection = () => {
+interface Props {
+  experiences: Experience[];
+}
+
+const ExperienceSection = ({ experiences }: Props) => {
   return (
     <section
       id="experience"
@@ -62,14 +63,19 @@ const ExperienceSection = () => {
           </div>
 
           <div className="space-y-8">
-            {experiences.map((exp, i) => (
+            {experiences.length === 0 && (
+              <p className="text-neutral-500">No experience entries yet.</p>
+            )}
+            {experiences.map((exp) => (
               <div
-                key={i}
+                key={exp._id}
                 className="relative bg-neutral-900/60 border border-neutral-700 rounded-2xl p-6 hover:border-neutral-600 transition-all duration-300"
               >
                 <p className="text-teal-400 text-sm mb-2">
-                  {formatDate(exp.start)} –{" "}
-                  {(exp as any).end ? formatDate((exp as any).end) : "Present"}
+                  {formatDate(exp.startDate)} –{" "}
+                  {exp.isCurrent || !exp.endDate
+                    ? "Present"
+                    : formatDate(exp.endDate)}
                 </p>
 
                 <div className="flex gap-4 items-start">
@@ -83,15 +89,17 @@ const ExperienceSection = () => {
                     </h3>
                     <p className="text-neutral-300">
                       {exp.company}
-                      {exp.location && `, ${exp.location}`}
+                      {exp.workLocation && `, ${exp.workLocation}`}
                     </p>
-                    {exp.description && (
-                      <p className="text-neutral-400 mt-2 text-sm leading-relaxed">
-                        {exp.description}
-                      </p>
+                    {exp.description?.length > 0 && (
+                      <ul className="text-neutral-400 mt-2 text-sm leading-relaxed list-disc list-inside space-y-1">
+                        {exp.description.map((d, i) => (
+                          <li key={i}>{d}</li>
+                        ))}
+                      </ul>
                     )}
                     <p className="text-neutral-500 text-sm mt-2">
-                      {getDuration(exp.start, (exp as any).end)}
+                      {getDuration(exp.startDate, exp.endDate)}
                     </p>
                   </div>
                 </div>

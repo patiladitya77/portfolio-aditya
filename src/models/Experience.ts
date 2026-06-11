@@ -66,5 +66,6 @@ const experienceSchema = new mongoose.Schema<IExperience>(
   { timestamps: true },
 );
 
-const Experience = mongoose.model("Experience", experienceSchema);
+const Experience =
+  mongoose.models.Experience || mongoose.model("Experience", experienceSchema);
 export default Experience;

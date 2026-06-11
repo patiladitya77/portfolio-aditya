@@ -1,14 +1,26 @@
-"use client";
-
 import ContactSection from "./components/ContactSection";
 import EducationSection from "./components/EducationSection";
-import ExperienceSection from "./components/ExperienceSection";
+import ExperienceSection, { Experience } from "./components/ExperienceSection";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import ProjectCard from "./components/ProjectCard";
 import SkillsSection from "./components/SkillsSection";
 
-export default function Home() {
+async function getData() {
+  const base = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const [projectsRes, experiencesRes] = await Promise.all([
+    fetch(`${base}/api/projects`, { cache: "no-store" }),
+    fetch(`${base}/api/experiences`, { cache: "no-store" }),
+  ]);
+
+  const projects = projectsRes.ok ? await projectsRes.json() : [];
+  const experiences = experiencesRes.ok ? await experiencesRes.json() : [];
+  return { projects, experiences };
+}
+
+export default async function Home() {
+  const { projects, experiences } = await getData();
+
   return (
     <>
       <Navbar />
@@ -27,18 +39,18 @@ export default function Home() {
             <h2 className="text-4xl font-bold mb-6 text-white">About Me</h2>
             <p className="text-neutral-400 max-w-2xl text-lg leading-relaxed">
               Software Engineer passionate about building scalable systems and
-              solving complex problems at scale. Ex perienced in full-stack
+              solving complex problems at scale. Experienced in full-stack
               development with strong foundations in Data Structures,
               Algorithms, and Object Oriented Design. Proven ability to
               demonstrate ownership, curiosity, and collaborative mindset while
-              de livering production-ready solutions in fast-paced environments.
+              delivering production-ready solutions in fast-paced environments.
             </p>
           </div>
         </section>
 
         <SkillsSection />
 
-        <ExperienceSection />
+        <ExperienceSection experiences={experiences as Experience[]} />
 
         {/* Projects */}
         <section
@@ -56,29 +68,20 @@ export default function Home() {
             </p>
 
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <ProjectCard
-                title="Synk"
-                description="Synk is a web based collaborative drawing tool"
-                tech={["ExpressJs", "Docker", "Socket.io", "PostgreSQL"]}
-                github="https://github.com/patiladitya77/synk"
-                // live="https://dev-tinder-fe.onrender.com/"
-                thumbnail="/synk.png"
-              />
-              <ProjectCard
-                title="Prep-AI"
-                description="AI-powered interview preparation platform with resume analysis, mock interviews, and performance analytics."
-                tech={["Next.js", "Node.js", "PostgreSQL", "Gemini", "BullMq"]}
-                live="https://prep-ai-seven-rho.vercel.app/"
-                github="https://github.com/patiladitya77/Prep-AI"
-                thumbnail="/prep-ai.png"
-              />
-              {/* <ProjectCard
-                title="LoveWall"
-                description="LoveWall is a testimonial collection platform where workspace owners can gather video/text testimonials and embed them into their websites with auto-generated code."
-                tech={["Next.js", "Redux", "Clerk", "Imagekit"]}
-                github="https://github.com/patiladitya77/lovewall-web"
-                thumbnail="/projects/lovewall.png"
-              /> */}
+              {projects.length === 0 && (
+                <p className="text-neutral-500 col-span-3">No projects yet.</p>
+              )}
+              {projects.map((p: any) => (
+                <ProjectCard
+                  key={p._id}
+                  title={p.title}
+                  description={p.description}
+                  tech={p.technologies}
+                  github={p.github ?? undefined}
+                  live={p.live ?? undefined}
+                  thumbnail={p.thumbnail}
+                />
+              ))}
             </div>
           </div>
         </section>
