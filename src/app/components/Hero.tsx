@@ -7,11 +7,11 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center bg-neutral-900 text-white px-10 md:px-16 overflow-hidden border-b border-neutral-800"
+      className="relative min-h-screen flex items-center bg-neutral-900 text-white px-6 md:px-16 overflow-hidden border-b border-neutral-800"
     >
       {/* SVG Background */}
       <div
-        className="absolute w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"
+        className="absolute w-[400px] h-[400px] md:w-[800px] md:h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"
         style={{
           backgroundImage:
             "url('https://do6gp1uxl3luu.cloudfront.net/assets/Lines.svg')",
@@ -23,18 +23,18 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto -mt-20">
+      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto pt-24 pb-12 md:py-0 md:-mt-20 gap-12 md:gap-0">
         {/* LEFT - Text */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 space-y-8 text-left md:pl-8"
+          className="flex-1 space-y-6 text-center md:text-left md:pl-8"
         >
           <p className="text-teal-400 text-sm tracking-widest">
             WELCOME TO MY PORTFOLIO
           </p>
-          <h1 className="text-5xl font-extrabold leading-snug">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug">
             Hello, <br />
             This is{" "}
             <span className="text-yellow-400 drop-shadow-md">Aditya Patil</span>
@@ -44,7 +44,7 @@ const HeroSection = () => {
             </span>
           </h1>
 
-          <div className="flex items-center gap-6 mt-6 cursor-pointer">
+          <div className="flex items-center justify-center md:justify-start gap-6 cursor-pointer">
             <a
               href="https://www.linkedin.com/in/devwithaditya/"
               target="_blank"
@@ -86,10 +86,10 @@ const HeroSection = () => {
             </a>
           </div>
 
-          <div className="flex gap-6 mt-8">
+          <div className="flex gap-4 justify-center md:justify-start flex-wrap">
             <a
               href="#contact"
-              className="px-8 py-3 border-2 border-white rounded-full hover:bg-white hover:text-black transition text-lg font-medium"
+              className="px-6 py-3 border-2 border-white rounded-full hover:bg-white hover:text-black transition text-base font-medium"
             >
               Contact Me
             </a>
@@ -97,7 +97,7 @@ const HeroSection = () => {
               href="https://drive.google.com/file/d/1ip362UH7gowFXGaG29-S0sPrHvV93PI7/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-linear-to-r from-green-400 to-purple-500 rounded-full hover:scale-105 transition text-lg font-medium inline-block"
+              className="px-6 py-3 bg-linear-to-r from-green-400 to-purple-500 rounded-full hover:scale-105 transition text-base font-medium inline-block"
             >
               Get Resume
             </a>
@@ -109,15 +109,15 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 flex justify-end md:pr-8 mt-12 md:mt-0"
+          className="flex-1 flex justify-center md:justify-end md:pr-8 w-full"
         >
-          <div className="bg-neutral-800 border border-neutral-700 text-[#e5e5e5] rounded-xl shadow-2xl p-8 font-mono text-[15px] w-[600px]">
+          <div className="bg-neutral-800 border border-neutral-700 text-[#e5e5e5] rounded-xl shadow-2xl p-5 md:p-8 font-mono text-[12px] md:text-[15px] w-full max-w-[600px]">
             <div className="flex gap-2 mb-4">
               <span className="w-3 h-3 bg-red-500 rounded-full" />
               <span className="w-3 h-3 bg-yellow-400 rounded-full" />
               <span className="w-3 h-3 bg-green-500 rounded-full" />
             </div>
-            <pre className="text-[#cfcfcf] whitespace-pre-wrap leading-relaxed">
+            <pre className="text-[#cfcfcf] whitespace-pre-wrap leading-relaxed overflow-x-auto">
               {`const coder = {
   name: 'Aditya Patil',
   role: 'Software Developer',
