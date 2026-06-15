@@ -59,7 +59,7 @@ export default async function Home() {
         >
           <div className="max-w-7xl mx-auto">
             <p className="text-teal-400 text-sm tracking-widest mb-4">
-              WHAT I'VE BUILT
+              WHAT I&apos;VE BUILT
             </p>
             <h2 className="text-4xl font-bold mb-4 text-white">Projects</h2>
             <p className="text-neutral-400 mb-12 max-w-2xl">
@@ -71,17 +71,27 @@ export default async function Home() {
               {projects.length === 0 && (
                 <p className="text-neutral-500 col-span-3">No projects yet.</p>
               )}
-              {projects.map((p: any) => (
-                <ProjectCard
-                  key={p._id}
-                  title={p.title}
-                  description={p.description}
-                  tech={p.technologies}
-                  github={p.github ?? undefined}
-                  live={p.live ?? undefined}
-                  thumbnail={p.thumbnail}
-                />
-              ))}
+              {projects.map(
+                (p: {
+                  _id: string;
+                  title: string;
+                  description: string;
+                  technologies: string[];
+                  github?: string;
+                  live?: string;
+                  thumbnail: string;
+                }) => (
+                  <ProjectCard
+                    key={p._id}
+                    title={p.title}
+                    description={p.description}
+                    tech={p.technologies}
+                    github={p.github ?? undefined}
+                    live={p.live ?? undefined}
+                    thumbnail={p.thumbnail}
+                  />
+                ),
+              )}
             </div>
           </div>
         </section>

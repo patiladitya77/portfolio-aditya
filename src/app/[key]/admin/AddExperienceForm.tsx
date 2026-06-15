@@ -200,7 +200,9 @@ function Field({
   label: string;
   name: string;
   value: string;
-  onChange: (e: any) => void;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
   required?: boolean;
   textarea?: boolean;
   placeholder?: string;
