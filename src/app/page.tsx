@@ -7,7 +7,9 @@ import ProjectCard from "./components/ProjectCard";
 import SkillsSection from "./components/SkillsSection";
 
 async function getData() {
-  const base = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const base = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
   const [projectsRes, experiencesRes] = await Promise.all([
     fetch(`${base}/api/projects`, { cache: "no-store" }),
     fetch(`${base}/api/experiences`, { cache: "no-store" }),
