@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Pencil, Plus } from "lucide-react";
 
@@ -286,9 +287,12 @@ export default function ProjectsManager() {
               <p className="text-xs text-neutral-400 mt-1">Uploading...</p>
             )}
             {thumbnailPreview && (
-              <img
+              <Image
                 src={thumbnailPreview}
                 alt="preview"
+                width={600}
+                height={128}
+                unoptimized
                 className="mt-3 h-32 w-full object-cover rounded-lg border border-neutral-600"
               />
             )}
@@ -420,7 +424,11 @@ function Field({
   label: string;
   name: string;
   value: string;
-  onChange: (e: any) => void;
+  onChange: (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => void;
   required?: boolean;
   textarea?: boolean;
   placeholder?: string;

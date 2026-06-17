@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Briefcase } from "lucide-react";
 
 const formatDate = (date: string) =>
@@ -46,9 +47,11 @@ const ExperienceSection = ({ experiences }: Props) => {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* LEFT – Illustration */}
         <div className="flex justify-center">
-          <img
+          <Image
             src="./computer.svg"
             alt="Work Illustration"
+            width={448}
+            height={448}
             className="max-w-md w-full object-contain opacity-90"
           />
         </div>

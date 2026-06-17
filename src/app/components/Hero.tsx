@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
@@ -49,9 +50,11 @@ const HeroSection = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="/linkedin.svg"
-                className="w-8 h-8 opacity-80 hover:opacity-100 hover:scale-110 transition duration-200"
+                width={32}
+                height={32}
+                className="opacity-80 hover:opacity-100 hover:scale-110 transition duration-200"
                 alt="linkedin"
               />
             </a>
@@ -60,9 +63,11 @@ const HeroSection = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="/github.svg"
-                className="w-8 h-8 opacity-80 hover:opacity-100 hover:scale-110 transition duration-200 invert"
+                width={32}
+                height={32}
+                className="opacity-80 hover:opacity-100 hover:scale-110 transition duration-200 invert"
                 alt="github"
               />
             </a>
@@ -71,9 +76,11 @@ const HeroSection = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="/leetcode.svg"
-                className="w-8 h-8 opacity-80 hover:opacity-100 hover:scale-110 transition duration-200"
+                width={32}
+                height={32}
+                className="opacity-80 hover:opacity-100 hover:scale-110 transition duration-200"
                 alt="leetcode"
               />
             </a>

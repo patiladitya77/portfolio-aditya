@@ -48,16 +48,20 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true, project }, { status: 201 });
-  } catch (error: any) {
-    if (error.code === 11000) {
+  } catch (error) {
+    if (
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      (error as { code: unknown }).code === 11000
+    ) {
       return NextResponse.json(
         { error: "A project with that title already exists" },
         { status: 409 },
       );
     }
-    return NextResponse.json(
-      { error: error.message || "Internal server error" },
-      { status: 500 },
-    );
+    const message =
+      error instanceof Error ? error.message : "Internal server error";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

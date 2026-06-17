@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -38,8 +39,8 @@ const SkillsSection = () => {
         {/* Marquee */}
         <div className="relative">
           {/* Gradient edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-neutral-800 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-neutral-800 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-neutral-800 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-neutral-800 to-transparent z-10 pointer-events-none" />
 
           <div className="overflow-hidden">
             <motion.div
@@ -51,16 +52,20 @@ const SkillsSection = () => {
                 duration: 40,
                 ease: "linear",
               }}
-              whileHover={{ animationPlayState: "paused" as any }}
+              whileHover={{
+                animationPlayState: "paused",
+              }}
             >
               {[...skills, ...skills, ...skills].map((skill, index) => (
-                <div key={index} className="flex-shrink-0 group">
+                <div key={index} className="shrink-0 group">
                   <div className="relative flex flex-col items-center justify-center w-40 h-40 bg-neutral-700/50 backdrop-blur-sm rounded-2xl border border-neutral-600 hover:border-neutral-500 transition-all duration-300 hover:scale-110 hover:bg-neutral-700">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <img
+                    <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <Image
                       src={skill.src}
                       alt={skill.name}
-                      className="h-16 w-16 object-contain mb-3 opacity-90 group-hover:opacity-100 transition-opacity duration-300 relative z-10"
+                      width={64}
+                      height={64}
+                      className="object-contain mb-3 opacity-90 group-hover:opacity-100 transition-opacity duration-300 relative z-10"
                     />
                     <span className="text-neutral-300 text-sm font-medium relative z-10">
                       {skill.name}

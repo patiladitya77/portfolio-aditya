@@ -21,9 +21,7 @@ const ContactSection = () => {
               Got a question or{" "}
               <span className="text-teal-400">want to work together?</span>
             </h3>
-            <p className="text-neutral-400 mb-8">
-              Feel free to reach out – I'm just one message away!
-            </p>
+            <p className="text-neutral-400 mb-8">Feel free to reach out</p>
 
             <div className="space-y-6">
               <div>
@@ -58,7 +56,7 @@ const ContactSection = () => {
 
               <button
                 type="button"
-                className="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-teal-400 to-purple-500 text-black font-semibold hover:scale-105 transition"
+                className="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-full bg-linear-to-r from-teal-400 to-purple-500 text-black font-semibold hover:scale-105 transition"
               >
                 SEND MESSAGE <Mail size={18} />
               </button>

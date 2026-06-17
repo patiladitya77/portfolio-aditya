@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { Play, Github, ExternalLink } from "lucide-react";
 
@@ -12,6 +13,22 @@ type ProjectCardProps = {
   thumbnail?: string;
 };
 
+const deploymentLogs = [
+  "🚀 Initializing deployment...",
+  "📦 Installing dependencies...",
+  "✓ Dependencies installed successfully",
+  "📝 Generating static pages...",
+  "✓ Static pages generated",
+  "🎨 Optimizing assets...",
+  "✓ Assets optimized",
+  "🔍 Running production build...",
+  "✓ Build completed successfully",
+  "🌐 Deploying to production...",
+  "✓ Deployment successful!",
+  "🎉 Application is live!",
+  "🔗 Redirecting to live site...",
+];
+
 const ProjectCard = ({
   title,
   description,
@@ -23,22 +40,6 @@ const ProjectCard = ({
   const [showTerminal, setShowTerminal] = useState(false);
   const [logs, setLogs] = useState<string[]>([]);
   const [currentLogIndex, setCurrentLogIndex] = useState(0);
-
-  const deploymentLogs = [
-    "🚀 Initializing deployment...",
-    "📦 Installing dependencies...",
-    "✓ Dependencies installed successfully",
-    "📝 Generating static pages...",
-    "✓ Static pages generated",
-    "🎨 Optimizing assets...",
-    "✓ Assets optimized",
-    "🔍 Running production build...",
-    "✓ Build completed successfully",
-    "🌐 Deploying to production...",
-    "✓ Deployment successful!",
-    "🎉 Application is live!",
-    "🔗 Redirecting to live site...",
-  ];
 
   useEffect(() => {
     if (showTerminal && currentLogIndex < deploymentLogs.length) {
@@ -73,10 +74,11 @@ const ProjectCard = ({
       {/* Thumbnail Section — fixed height */}
       <div className="relative h-48 shrink-0 bg-linear-to-br from-neutral-700 to-neutral-800 overflow-hidden">
         {thumbnail ? (
-          <img
+          <Image
             src={thumbnail}
             alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
