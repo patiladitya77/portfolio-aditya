@@ -5,19 +5,20 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import ProjectCard from "./components/ProjectCard";
 import SkillsSection from "./components/SkillsSection";
+import { connectDB } from "@/lib/db";
+import Project from "@/models/Project";
+import ExperienceModel from "@/models/Experience";
 
 async function getData() {
-  const base = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
-  const [projectsRes, experiencesRes] = await Promise.all([
-    fetch(`${base}/api/projects`, { cache: "no-store" }),
-    fetch(`${base}/api/experiences`, { cache: "no-store" }),
+  await connectDB();
+  const [projects, experiences] = await Promise.all([
+    Project.find({ isVisible: true }).sort({ order: 1 }).lean(),
+    ExperienceModel.find({ isVisible: true }).sort({ order: 1 }).lean(),
   ]);
-
-  const projects = projectsRes.ok ? await projectsRes.json() : [];
-  const experiences = experiencesRes.ok ? await experiencesRes.json() : [];
-  return { projects, experiences };
+  return {
+    projects: JSON.parse(JSON.stringify(projects)),
+    experiences: JSON.parse(JSON.stringify(experiences)),
+  };
 }
 
 export default async function Home() {
