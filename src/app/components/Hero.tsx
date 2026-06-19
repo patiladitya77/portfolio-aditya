@@ -94,7 +94,7 @@ const HeroSection = () => {
               Contact Me
             </a>
             <a
-              href="https://drive.google.com/file/d/1ip362UH7gowFXGaG29-S0sPrHvV93PI7/view?usp=sharing"
+              href="https://drive.google.com/file/d/1uerRn9Py_JacfZU-DR2CTHfhgtlqkqDd/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-linear-to-r from-green-400 to-purple-500 rounded-full hover:scale-105 transition text-base font-medium inline-block"
